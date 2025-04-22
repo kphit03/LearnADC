@@ -13,6 +13,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -74,7 +75,8 @@ public class AuthService {
                     new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
             );
 
-            String token = jwtGenerator.generateToken(request.getEmail()); //if auth successful, generate token
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            String token = jwtGenerator.generateToken(userDetails.getUsername()); //if auth successful, generate token
             return new LoginResponse(token); //return token to the frontend
         } catch (AuthenticationException e) {
             throw new RuntimeException("Authentication failed, invalid credentials");
