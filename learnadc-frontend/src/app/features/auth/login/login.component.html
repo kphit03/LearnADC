@@ -1,0 +1,19 @@
+<!-- LOGIN FORM CONTAINER-->
+<div class="login-container">
+    <h2>Login</h2>
+    <!-- bind the form element to the reactive form in the typescript file (ts form is called loginForm in login.component.ts) | additionally, when the form is submitted on the html form, run the onSubmit() method-->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Email or Username:</label>
+        <input type="email" formControlName="email" /> <!-- "formControlName" connects the input field to form- and angular binds it to the email control from FormGroup that we initialized, angular will track its value and validation status-->
+      </div>
+  
+      <div>
+        <label>Password:</label>
+        <input type="password" formControlName="password" /> <!-- Same as above email-->
+      </div>
+  
+      <button type="submit">Log In</button> <!-- triggers form submission, if valid it'll hit our bakend, if not it'll show error-->
+    </form>
+  </div>
+  
