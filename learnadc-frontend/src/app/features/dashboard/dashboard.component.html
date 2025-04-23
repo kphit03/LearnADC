@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+
+<div class="dashboard">
+    <h1>Welcome to LearnADC</h1>
+    <p>Learn how to dominate bot lane with expert ADC guides and videos.</p>
+    
+    <ng-container *ngIf="isLoggedIn$ | async; else guest">
+      <a routerLink="/courses">
+        <button class="browse-btn">Browse Courses</button>
+      </a>
+    </ng-container>
+    <ng-template #guest>
+      <a routerLink="/auth/login" class="browse-btn-link">Login to View Courses</a>
+    </ng-template>
+  </div>
+  

@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2e8bc0;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1rem;
+  }
+  
+  .navbar .brand {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    color: white;
+    margin-left: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
