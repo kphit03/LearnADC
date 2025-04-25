@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="lesson-page">
+  <!-- Sidebar -->
+  <div class="lesson-sidebar">
+    <a class="back-button" routerLink="/courses"  id="back-button">
+      ← Back to Courses
+    </a>
+    
+    <h4>Lessons</h4>
+    <ul>
+      <li *ngFor="let lesson of lessons" 
+          [class.active]="lesson.id === currentLesson?.id">
+        <a [routerLink]="['/courses', courseId, 'lessons', lesson.id]">
+          {{ lesson.title }}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Lesson Content -->
+  <div class="lesson-content" *ngIf="currentLesson">
+    <h2>{{ currentLesson.title }}</h2>
+    <iframe
+      width="100%"
+      height="450"
+      [src]="getSafeVideoUrl(currentLesson.videoUrl)"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+    <p>{{ currentLesson.description }}</p>
+  </div>
+</div>

@@ -1,53 +1,97 @@
 .register-container {
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 2rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #333;
-  }
-  
-  form div {
-    margin-bottom: 1rem;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-  
-  input {
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box;
-  }
-  
-  button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #2e8bc0;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  button:hover {
-    background-color: #256aa9;
-  }
-  
+  max-width: 400px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.1);
+  color: #eee;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.register-container h2 {
+  text-align: center;
+  color: #D5C2FF;
+  margin-bottom: 2rem;
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.register-container form div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+  display: block;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background-color: #2b2b2b;
+  color: #eee;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #9D4EDD;
+  box-shadow: 0 0 4px rgba(157, 78, 221, 0.4);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #6C63FF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(108, 99, 255, 0.3);
+}
+
+button[type="submit"]:hover {
+  background-color: #9D4EDD;
+  transform: translateY(-2px);
+}
+
+.login-redirect {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #ccc;
+  text-align: center;
+}
+
+.login-redirect a {
+  color: #9D4EDD;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-redirect a:hover {
+  color: #D5C2FF;
+}

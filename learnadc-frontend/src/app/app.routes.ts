@@ -3,7 +3,8 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { authGuard } from './core/auth.guard';
-
+import { CoursesComponent } from './features/courses/courses.component';
+import { LessonsComponent } from './features/lessons/lessons.component';
 export const routes: Routes = [
     { path: 'auth/login', component: LoginComponent},
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -12,10 +13,10 @@ export const routes: Routes = [
 
     // Protected Routes
 
-    // { path: 'courses', component: CoursesComponent, canActivate: [authGuard] },
-    // { path: 'courses/:id/lessons/:lessonId', component: LessonComponent, canActivate: [authGuard] },
-
+     { path: 'courses', component: CoursesComponent, canActivate: [authGuard] },
+     { path: 'courses/:courseId/lessons/:lessonId', component: LessonsComponent, canActivate: [authGuard] },
+    
     // Fallback route
-    // { path: '**', redirectTo: 'dashboard' }
+     { path: '**', redirectTo: 'dashboard' }
 
 ];

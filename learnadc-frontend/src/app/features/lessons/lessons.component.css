@@ -1,0 +1,136 @@
+body {
+    background-color: #121212;
+    color: #eee;
+    font-family: 'Inter', sans-serif;
+  }
+
+  iframe {
+    border-radius: 10px;
+    box-shadow: 0 0 16px rgba(108, 99, 255, 0.4); /* violet glow */
+  }
+
+/* container */
+.lesson-page {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 1rem;
+    background-color: #292929;
+    color: #eee;
+    animation: fadeIn .6s ease-out;
+    border-radius: 10px;
+  }
+  
+  .lesson-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    border-right: 1px solid #2a2a2a;
+    position: sticky;
+    top: 1rem;
+    height: fit-content;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    background-color: #1a1a1a;
+    padding-right: 1rem;
+  }
+  
+  .lesson-sidebar h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  }
+  
+  .lesson-sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  iframe {
+  border-radius: 10px;
+  box-shadow: 0 0 16px rgba(108, 99, 255, 0.4); /* violet glow */
+}
+  .lesson-sidebar li {
+    margin: 0.5rem 0;
+  }
+  
+  .lesson-sidebar a {
+    text-decoration: none;
+    color: #9D4EDD;
+    font-weight: 500;
+    margin-left: 1rem;
+  }
+
+  .lesson-sidebar a:hover {
+    color: #D5C2FF;
+    transition: ease-in-out .2s;
+  }
+  
+  .lesson-sidebar li.active a {
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #6C63FF;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  .lesson-content h2, .lesson-sidebar h4 {
+    color: #D5C2FF;
+}
+  
+  .lesson-content {
+    flex-grow: 1;
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .lesson-content h2 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  .lesson-content p {
+    color: #bbb;
+    margin-top: 1rem;
+  }
+  .back-button {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #6C63FF; 
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(108, 99, 255, 0.3);
+  }
+
+  #back-button {
+    color: #fff;
+  }
+  
+  .back-button:hover {
+    background-color: #9D4EDD;
+    transform: translateY(-2px);
+  }
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .lesson-page {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  
+    .lesson-sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 1rem;
+    }
+  }
+  

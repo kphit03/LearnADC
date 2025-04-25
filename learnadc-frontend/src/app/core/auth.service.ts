@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class AuthService {
-  private apiUrl = `${environment.apiBaseUrl}/auth`;
+  private apiUrl = `${environment.apiBaseUrl}/api/auth`;
 
   //tracks login state across the app
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
@@ -39,7 +39,10 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    return localStorage.getItem('token');
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('token');
+    }
+    return null;
   }
 
   private hasToken(): boolean {

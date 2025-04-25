@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div class="courses-container">
+    <h2>Available Courses</h2>
+  
+    <div *ngIf="loading">Loading courses...</div>
+  
+    <div *ngIf="!loading && courses.length === 0">
+      <p>No courses available yet.</p>
+    </div>
+  
+    <div *ngIf="!loading" class="course-list">
+      <div *ngFor="let course of courses" class="course-card">
+        <h3>{{ course.title }}</h3>
+        <p>{{ course.description }}</p>
+        <!-- /courses/{course.id}/lessons/{lessonNumber}-->
+        <a *ngIf="firstLessonIds[course.id]" [routerLink]="['/courses', course.id, 'lessons', firstLessonIds[course.id]]"> <button class="browse-btn">View Lessons</button></a>
+      </div>
+    </div>
+  </div>
+  

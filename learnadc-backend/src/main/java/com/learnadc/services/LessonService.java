@@ -1,6 +1,7 @@
 package com.learnadc.services;
 
 import com.learnadc.dto.LessonRequestDTO;
+import com.learnadc.dto.LessonResponseDTO;
 import com.learnadc.exception.CourseNotFoundException;
 import com.learnadc.exception.LessonNotFoundException;
 import com.learnadc.model.Course;
@@ -10,10 +11,14 @@ import com.learnadc.repositories.LessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class LessonService {
     private final LessonRepository lessonRepository;
     private final CourseRepository courseRepository;
+
 
     @Autowired
     public LessonService(LessonRepository lessonRepository, CourseRepository courseRepository) {
@@ -68,5 +73,17 @@ public class LessonService {
         lessonRepository.delete(lesson);
     }
 
+    public List<LessonResponseDTO> getLessonsByCourseId(Long courseId) {
+        Course course = courseRepository.findById(courseId)
+                .orElseThrow(() -> new CourseNotFoundException("Course with ID " + courseId + " not found"));
 
+        return course.getLessons().stream().map(lesson -> {
+            LessonResponseDTO dto = new LessonResponseDTO();
+            dto.setId(lesson.getId());
+            dto.setTitle(lesson.getTitle());
+            dto.setDescription(lesson.getDescription());
+            dto.setVideoUrl(lesson.getVideoUrl());
+            return dto;
+        }).collect(Collectors.toList());
+    }
 }

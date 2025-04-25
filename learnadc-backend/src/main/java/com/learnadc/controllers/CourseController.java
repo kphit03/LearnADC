@@ -85,5 +85,11 @@ public class CourseController {
         return ResponseEntity.ok(courseService.getCourseById(id));
     }
 
+    // PUBLIC: Get all lessons in a course
+    @GetMapping("/{courseId}/lessons")
+    public ResponseEntity<?> getLessonsByCourse(@PathVariable Long courseId) {
+        return ResponseEntity.ok(lessonService.getLessonsByCourseId(courseId));
+    }
+
 
 }

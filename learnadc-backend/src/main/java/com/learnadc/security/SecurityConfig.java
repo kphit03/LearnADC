@@ -28,10 +28,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .cors()
+                .and()
                 .csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/api/auth/register", "/api/auth/login").permitAll() //permit the login and register endpoints
-                .requestMatchers("/courses").permitAll()
+                .requestMatchers("/courses/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

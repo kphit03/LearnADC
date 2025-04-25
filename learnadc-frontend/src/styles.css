@@ -1,20 +1,22 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: rgb(50, 48, 54);
+}
 .custom-toast {
-  background-color: #2e8bc0 !important; /* your app color */
+  background-color: #6C63FF !important;
   color: white !important;
   padding: 1rem !important;
   border-radius: 6px !important;
   font-family: 'Segoe UI', sans-serif;
-
-  /* ✅ Required to display properly */
   display: block !important;
-  opacity: 1 !important;
   position: relative !important;
   z-index: 9999 !important;
 
-  /* ✅ Optional: Add animation */
-  animation: fadeIn 0.4s ease-in;
+  animation: fadeInOut 4s ease-in-out forwards !important;
+  opacity: 0; /* start invisible, fade in */
 }
 
+/* FADE IN ANIMATION*/
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -25,5 +27,36 @@
     transform: translateY(0);
   }
 }
+/* FADE IN OUT ANIMATION*/
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+/* FADE IN UP ANIMATION*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
