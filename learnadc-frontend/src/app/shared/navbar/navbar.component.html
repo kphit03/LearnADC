@@ -2,18 +2,26 @@
   <div class="nav-container">
     <a class="nav-logo" routerLink="/">LearnADC</a>
 
-    <ul class="nav-links">
-      <li><a routerLink="/dashboard" routerLinkActive="active">Home</a></li>
-      <li><a routerLink="/courses" routerLinkActive="active">Courses</a></li>
-      <li><a routerLink="/faq" routerLinkActive="active">FAQ</a></li>
-      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+    <!-- Hamburger icon for smaller screens -->
+    <div class="hamburger" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Navigation links -->
+    <ul class="nav-links" [class.active]="menuOpen">
+      <li><a routerLink="/dashboard" routerLinkActive="active" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/courses" routerLinkActive="active" (click)="closeMenu()">Courses</a></li>
+      <li><a routerLink="/faq" routerLinkActive="active" (click)="closeMenu()">FAQ</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
 
       <ng-container *ngIf="isLoggedIn$ | async; else guest">
         <li><a (click)="logout()">Logout</a></li>
       </ng-container>
       <ng-template #guest>
-        <li><a routerLink="/auth/login" routerLinkActive="active">Login</a></li>
-        <li><a routerLink="/auth/register" routerLinkActive="active">Register</a></li>
+        <li><a routerLink="/auth/login" routerLinkActive="active" (click)="closeMenu()">Login</a></li>
+        <li><a routerLink="/auth/register" routerLinkActive="active" (click)="closeMenu()">Register</a></li>
       </ng-template>
     </ul>
   </div>

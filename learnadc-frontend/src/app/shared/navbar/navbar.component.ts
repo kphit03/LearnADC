@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 import { Observable } from 'rxjs';
-import { LucideAngularModule, Target, Gamepad2 } from 'lucide-angular';
 
 @Component({
   selector: 'app-navbar',
@@ -23,4 +22,16 @@ export class NavbarComponent {
     this.authService.logout();
     window.location.href = '/';
   }
+
+  menuOpen = false;
+  
+  //toggle menu function for hamburg menu
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
+
 }

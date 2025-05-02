@@ -34,6 +34,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/api/auth/register", "/api/auth/login").permitAll() //permit the login and register endpoints
                 .requestMatchers("/courses/**").permitAll()
+                .requestMatchers("/api/contact").permitAll()
+                .requestMatchers("/admin/login").permitAll()
+                .requestMatchers("/admin/dashboard").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

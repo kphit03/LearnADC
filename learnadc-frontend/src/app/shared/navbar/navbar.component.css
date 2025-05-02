@@ -1,45 +1,109 @@
+/* Navbar overall */
 .navbar {
   background-color: #1a1a1a;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #2a2a2a;
-  font-family: 'Inter', sans-serif;
-}
-
-.nav-container {
+  padding: .5rem 2rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
+/* Container inside the navbar */
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
 .nav-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
   color: #D5C2FF;
-  font-size: 1.5rem;
-  font-weight: bold;
   text-decoration: none;
 }
 
+/* Links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
+  gap: 2rem;
 }
 
+/* Link styles */
 .nav-links li a {
   color: #eee;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
+/* Hover links */
+.nav-links li a:hover {
   color: #9D4EDD;
   cursor: pointer;
 }
 
-.nav-links li a:focus {
-  outline: 2px solid #6C63FF;
-  border-radius: 4px;
+/* Active link */
+.active {
+  color: #9D4EDD;
+}
+
+/* Hamburger button (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #D5C2FF;
+  border-radius: 2px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px; /* height of your navbar */
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    transform: translateY(-120%);
+    z-index: 999; /* make sure it overlays */
+    font-size: 1.3rem;
+    margin-top: 0;
+  }
+  .navbar {
+    padding: 1.5rem;
+    margin-bottom: 0;
+    z-index: 999; /* make sure it overlays */
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
 }

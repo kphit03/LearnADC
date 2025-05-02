@@ -3,19 +3,27 @@ package com.learnadc.security;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
+import java.util.Base64;
 import java.util.Date;
 
 @Component
 public class JWTGenerator {
-    private final Key key;
+    private Key key;
     private final long expiration = 3600000; // 1 hour till token expiration
 
-    public JWTGenerator() {
-        this.key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    @Value("${jwt.secret}")
+    private String jwtSecret;
+
+    @PostConstruct
+    public void init() {
+        byte[] secretBytes = Base64.getDecoder().decode(jwtSecret);
+        this.key = Keys.hmacShaKeyFor(secretBytes);
     }
 
     public String generateToken(String email) { //create a signed JWT token w/ user email as the subject

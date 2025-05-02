@@ -1,0 +1,179 @@
+/* Global Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: rgb(50, 48, 54);
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Contact Page */
+.contact-page {
+  max-width: 700px;
+  margin: 5rem auto;
+  padding: 2.5rem;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.2);
+  text-align: center;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.contact-page h2 {
+  color: #D5C2FF;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.contact-page p {
+  color: #ffffff;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  padding-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+input,
+textarea {
+  max-width: 500px;
+  padding: 0.75rem;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background-color: #2b2b2b;
+  color: #eee;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #9D4EDD;
+  box-shadow: 0 0 4px rgba(157, 78, 221, 0.4);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.required {
+  color: rgb(255, 144, 144);
+  font-weight: bold;
+}
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.75rem;
+  background-color: #6C63FF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(108, 99, 255, 0.3);
+}
+
+button[type="submit"]:hover {
+  background-color: #9D4EDD;
+  transform: translateY(-2px);
+}
+
+button[disabled] {
+  background-color: #444 !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+#alt-line {
+  font-size: .8rem;
+  color: rgb(182, 182, 182);
+}
+/* Toast Styling (if needed elsewhere) */
+.custom-toast {
+  background-color: #6C63FF !important;
+  color: white !important;
+  padding: 1rem !important;
+  border-radius: 6px !important;
+  font-family: 'Segoe UI', sans-serif;
+  position: fixed !important;
+  top: 80px !important;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999 !important;
+  opacity: 0;
+  animation: fadeInOut 3s ease-in-out forwards !important;
+}
+
+/* Animations */
+
+/* Fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in and out (toast messages) */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

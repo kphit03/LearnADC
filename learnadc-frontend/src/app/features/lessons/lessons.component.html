@@ -1,16 +1,33 @@
 <app-navbar></app-navbar>
+
+<!-- "Open Lessons" Button for Mobile -->
+<div>
+  <button class="open-sidebar-btn" (click)="toggleSidebar()" *ngIf="isMobileScreen">
+  Open Lessons
+  </button>
+</div>
+
 <div class="lesson-page">
-  <!-- Sidebar -->
-  <div class="lesson-sidebar">
-    <a class="back-button" routerLink="/courses"  id="back-button">
-      ← Back to Courses
-    </a>
+  <!-- Sidebar (show/hide based on sidebarOpen) -->
+  <div class="lesson-sidebar" [class.open]="sidebarOpen || !isMobileScreen">
+    <div class="sidebar-header">
+      <a class="back-button" id="back-button" routerLink="/courses">
+        All Courses
+      </a>
+
+      <!-- Show Close button only on Mobile + when Sidebar is open -->
+      <button 
+        class="close-sidebar-btn" 
+        (click)="toggleSidebar()" 
+        *ngIf="sidebarOpen && isMobileScreen" id="close-button">
+        ✖ Close
+      </button>
+    </div>
     
     <h4>Lessons</h4>
     <ul>
-      <li *ngFor="let lesson of lessons" 
-          [class.active]="lesson.id === currentLesson?.id">
-        <a [routerLink]="['/courses', courseId, 'lessons', lesson.id]">
+      <li *ngFor="let lesson of lessons" [class.active]="lesson.id === currentLesson?.id">
+        <a [routerLink]="['/courses', courseId, 'lessons', lesson.id]" (click)="sidebarOpen = false">
           {{ lesson.title }}
         </a>
       </li>
@@ -20,13 +37,7 @@
   <!-- Main Lesson Content -->
   <div class="lesson-content" *ngIf="currentLesson">
     <h2>{{ currentLesson.title }}</h2>
-    <iframe
-      width="100%"
-      height="450"
-      [src]="getSafeVideoUrl(currentLesson.videoUrl)"
-      frameborder="0"
-      allowfullscreen
-    ></iframe>
+    <div #videoContainer class="video-wrapper"></div>
     <p>{{ currentLesson.description }}</p>
   </div>
 </div>

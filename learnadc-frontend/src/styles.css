@@ -1,21 +1,53 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: rgb(50, 48, 54);
+  padding: 0;
+  margin: 0;
 }
+
 .custom-toast {
-  background-color: #6C63FF !important;
+  background-color: #6C63FF !important; 
   color: white !important;
   padding: 1rem !important;
   border-radius: 6px !important;
   font-family: 'Segoe UI', sans-serif;
   display: block !important;
-  position: relative !important;
+  position: fixed !important; 
+  top: 80px !important;    
+  left: 50% !important;
+  transform: translate(-50%) !important;   
   z-index: 9999 !important;
 
-  animation: fadeInOut 4s ease-in-out forwards !important;
-  opacity: 0; /* start invisible, fade in */
+  animation: fadeInOut 3s ease-in-out forwards !important;
+}
+.lesson-iframe {
+  border-radius: 10px;
+  box-shadow: 0 0 16px rgba(108, 99, 255, 0.4);
+  display: block;
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 450px;
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 16px rgba(108, 99, 255, 0.4);
+  margin-top: 1rem;
 }
 
+.video-wrapper iframe.lesson-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 /* FADE IN ANIMATION*/
 @keyframes fadeIn {
   from {
@@ -33,11 +65,11 @@ body {
     opacity: 0;
     transform: translateY(-10px);
   }
-  10% {
+  20% {
     opacity: 1;
     transform: translateY(0);
   }
-  90% {
+  80% {
     opacity: 1;
     transform: translateY(0);
   }
