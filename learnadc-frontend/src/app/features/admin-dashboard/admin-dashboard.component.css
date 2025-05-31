@@ -1,0 +1,190 @@
+/* General layout */
+.admin-dashboard-container {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    color: #eee;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Header section */
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Buttons */
+  .add-btn,
+  .submit-btn,
+  .cancel-btn,
+  .lesson-actions button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .add-btn,
+  .submit-btn {
+    background-color: #6c63ff;
+    color: white;
+  }
+  
+  .add-btn:hover,
+  .submit-btn:hover {
+    background-color: #584adf;
+  }
+  
+  .cancel-btn {
+    background-color: #444;
+    color: white;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #333;
+  }
+  
+  /* Course list and cards */
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .course-card {
+    background: #1f1f1f;
+    padding: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .course-card:hover {
+    transform: scale(1.01);
+  }
+  
+  /* Modal backdrop */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  
+  /* Modal box */
+  .modal {
+    background-color: #1c1c1c;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(108, 99, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  /* Form inputs */
+  .modal input,
+  .modal textarea {
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #2c2c2c;
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Expandable and scrollable textarea for add/edit lesson */
+  textarea,
+  .add-lesson-desc {
+    min-height: 100px;
+    max-height: 300px;
+    resize: vertical;
+  }
+  
+  /* Modal button row */
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Individual lesson card */
+  .lesson-card {
+    background-color: #2b2b2b;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Edit form inside lesson */
+  .lesson-edit-form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  /* Edit/delete buttons for lessons */
+  .lesson-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Divider */
+  hr {
+    border: none;
+    height: 1px;
+    background-color: #333;
+    margin: 2rem 0 1rem;
+  }
+  .lesson-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  /* Mobile responsiveness */
+  @media (max-width: 600px) {
+    .dashboard-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .modal {
+      padding: 1.5rem;
+    }
+  
+    .modal-actions {
+      justify-content: center;
+    }
+  
+    .add-btn,
+    .submit-btn,
+    .cancel-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  

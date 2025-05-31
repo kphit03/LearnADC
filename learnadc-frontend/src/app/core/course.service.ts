@@ -37,4 +37,28 @@ export class CourseService {
   getLessonsForCourse(courseId: number): Observable<Lesson[]> {
     return this.http.get<Lesson[]>(`${this.apiUrl}/${courseId}/lessons`);
   }
+
+  addCourse(courseData: { title: string; description: string; category: string }) {
+    return this.http.post<Course>(`${this.apiUrl}/create`, courseData);
+  }
+
+  addLessonToCourse(courseId: number, lessonData: { title: string; description: string; videoUrl: string }) {
+    return this.http.post(`${this.apiUrl}/${courseId}/lessons`, lessonData, { responseType: 'text' });
+  }
+  updateLesson(courseId: number, lessonId: number, lessonData: { title: string; description: string; videoUrl: string }) {
+    return this.http.put(`${this.apiUrl}/${courseId}/lessons/${lessonId}`, lessonData, { responseType: 'text' });
+  }
+  
+  deleteLesson(courseId: number, lessonId: number) {
+    return this.http.delete(`${this.apiUrl}/${courseId}/lessons/${lessonId}`, { responseType: 'text' });
+  }
+
+  updateCourse(id: number, courseData: { title: string; description: string; category: string }) {
+    return this.http.put(`${this.apiUrl}/${id}`, courseData, { responseType: 'text' });
+  }
+  
+  deleteCourse(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`, { responseType: 'text' });
+  }
+  
 }

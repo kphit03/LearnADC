@@ -1,0 +1,104 @@
+<div class="admin-dashboard-container">
+    <div class="dashboard-header">
+      <h2>Admin Dashboard</h2>
+      <button class="add-btn" (click)="showModal = true">+ Add Course</button>
+    </div>
+  
+    <!-- Modal for Add Course -->
+    <div *ngIf="showModal" class="modal-overlay">
+      <div class="modal">
+        <h3>Add New Course</h3>
+  
+        <input [(ngModel)]="newCourse.title" placeholder="Title" />
+        <input [(ngModel)]="newCourse.category" placeholder="Category" />
+        <textarea [(ngModel)]="newCourse.description" placeholder="Description"></textarea>
+  
+        <div class="modal-actions">
+          <button class="submit-btn" (click)="addCourse()">Submit</button>
+          <button class="cancel-btn" (click)="showModal = false">Cancel</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Course List -->
+    <div *ngIf="courses.length > 0; else noCourses" class="course-list">
+      <div *ngFor="let course of courses" class="course-card" (click)="viewLessons(course)">
+        <h3>{{ course.title }}</h3>
+        <p>{{ course.description }}</p>
+        <small><strong>Category:</strong> {{ course.category }}</small>
+  
+        <!-- Prevent clicks from bubbling to course card -->
+        <div class="lesson-actions" (click)="$event.stopPropagation()">
+          <button (click)="startEditingCourse(course)">Edit</button>
+          <button (click)="deleteCourse(course)">Delete</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Edit Course Modal -->
+    <div *ngIf="editingCourse" class="modal-overlay">
+      <div class="modal">
+        <h3>Edit Course</h3>
+        <input [(ngModel)]="editingCourse.title" placeholder="Title" />
+        <input [(ngModel)]="editingCourse.category" placeholder="Category" />
+        <textarea [(ngModel)]="editingCourse.description" placeholder="Description"></textarea>
+  
+        <div class="modal-actions">
+          <button class="submit-btn" (click)="saveCourseEdit()">Save</button>
+          <button class="cancel-btn" (click)="cancelCourseEdit()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Lessons Modal -->
+    <div *ngIf="showLessonModal" class="modal-overlay">
+      <div class="modal">
+        <h3>Lessons for {{ selectedCourse?.title }}</h3>
+  
+        <div *ngIf="lessons.length > 0; else noLessons">
+          <div *ngFor="let lesson of lessons" class="lesson-card">
+            <h4>{{ lesson.title }}</h4>
+            <p>{{ lesson.description }}</p>
+  
+            <div class="lesson-actions">
+              <button (click)="startEditingLesson(lesson)">Edit</button>
+              <button (click)="deleteLesson(lesson)">Delete</button>
+            </div>
+  
+            <!-- Edit Lesson Form -->
+            <div *ngIf="editingLesson && editingLesson.id === lesson.id" class="lesson-edit-form">
+              <input [(ngModel)]="editingLesson.title" placeholder="Title" />
+              <input [(ngModel)]="editingLesson.videoUrl" placeholder="Video URL" />
+              <textarea [(ngModel)]="editingLesson.description" placeholder="Description"></textarea>
+  
+              <div class="modal-actions">
+                <button class="submit-btn" (click)="saveLessonEdit()">Save</button>
+                <button class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <ng-template #noLessons>
+          <p>No lessons found for this course.</p>
+        </ng-template>
+  
+        <hr />
+        <h4>Add New Lesson</h4>
+  
+        <input [(ngModel)]="newLesson.title" placeholder="Lesson Title" />
+        <input [(ngModel)]="newLesson.videoUrl" placeholder="Video URL" />
+        <textarea [(ngModel)]="newLesson.description" placeholder="Lesson Description" class="add-lesson-desc"></textarea>
+  
+        <div class="modal-actions">
+          <button class="submit-btn" (click)="addLesson()">Add Lesson</button>
+          <button class="cancel-btn" (click)="showLessonModal = false">Close</button>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noCourses>
+      <p>No courses available.</p>
+    </ng-template>
+  </div>
+  

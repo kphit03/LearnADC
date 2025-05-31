@@ -43,8 +43,18 @@ export class LoginComponent {
 
       //if login succeeds, show a success toast and redirect
       next: () => { 
+        const token = this.authService.getToken();
+        if (token) {
+          const payload = this.parseJwt(token);
+          const roles = payload?.roles || [];
+
+          if (roles.includes('ROLE_ADMIN')) {
+            this.router.navigate(['/admin']);
+          } else {
+            this.router.navigate(['/dashboard'])
+          }
+        }
         this.toastr.success('Login successful');
-        this.router.navigate(['/dashboard']); // redirect after login
       },
 
       //if login fails, catch the error and show a failure toast
@@ -53,5 +63,14 @@ export class LoginComponent {
         this.toastr.error('Login failed. Check credentials.');
       }
     });
+  }
+
+  private parseJwt(token: string): any {
+    try {
+      const payload = atob(token.split('.')[1]);
+      return JSON.parse(payload);
+    } catch {
+      return null;
+    }
   }
 }

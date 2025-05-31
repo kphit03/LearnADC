@@ -76,7 +76,7 @@ public class AuthService {
             );
 
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            String token = jwtGenerator.generateToken(userDetails.getUsername()); //if auth successful, generate token
+            String token = jwtGenerator.generateToken(userDetails.getUsername(), userDetails.getAuthorities()); //if auth successful, generate token
             return new LoginResponse(token); //return token to the frontend
         } catch (AuthenticationException e) {
             throw new RuntimeException("Authentication failed, invalid credentials");

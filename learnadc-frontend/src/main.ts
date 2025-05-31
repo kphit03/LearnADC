@@ -3,11 +3,15 @@ import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 import { appConfig } from './app/app.config';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { tokenInterceptor } from './app/core/token-interceptor.service';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routes),      // Hook up the routes
-    ...appConfig.providers      // Load global providers (like Toastr, Interceptors, etc.)
+    provideRouter(routes),
+    provideHttpClient(withInterceptors([tokenInterceptor])),      // Hook up the routes
+    ...appConfig.providers, // Load global providers (like Toastr, Interceptors, etc.)
+       
   ]
 })
 .catch((err) => console.error(err));
