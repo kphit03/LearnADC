@@ -11,7 +11,7 @@ body {
   color: #eee;
 }
 
-/* === Dashboard Wrapper === */
+/* Dashboard Wrapper */
 .dashboard-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -27,7 +27,7 @@ body {
   overflow-x: hidden;
 }
 
-/* === Text Section === */
+/* Text Section */
 .dashboard-text {
   flex: 1 1 500px;
   max-width: 600px;
@@ -59,7 +59,7 @@ body {
   max-width: 50%;
 }
 
-/* === Button Styling === */
+/*  Button Styling */
 .browse-btn,
 .browse-btn-link {
   display: inline-block;
@@ -83,7 +83,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* === Image Section === */
+/*  Image Section  */
 .dashboard-image {
   flex: 1 1 400px;
   display: flex;
@@ -104,7 +104,7 @@ body {
   transform: scale(1.03);
 }
 
-/* === Responsive === */
+/*  Responsive  */
 @media (max-width: 768px) {
   .dashboard-wrapper {
     flex-direction: column;
@@ -125,7 +125,7 @@ body {
   }
 }
 
-/* === Animations === */
+/* Animations  */
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -150,4 +150,5 @@ body {
 #p3 {
   font-weight: bold;
   font-size: 2rem;
+  color: white;
 }
