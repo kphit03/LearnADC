@@ -5,7 +5,9 @@ import { routes } from './app/app.routes';
 import { appConfig } from './app/app.config';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { tokenInterceptor } from './app/core/token-interceptor.service';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
+injectSpeedInsights();
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
@@ -15,3 +17,4 @@ bootstrapApplication(AppComponent, {
   ]
 })
 .catch((err) => console.error(err));
+
