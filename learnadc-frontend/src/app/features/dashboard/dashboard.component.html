@@ -3,9 +3,9 @@
 <div class="dashboard-wrapper">
   <div class="dashboard-text">
     <h1>Welcome to LearnADC</h1>
-    <p>The <span id="free">FREE</span>, learning platform for beginner ADC enthusiasts to elevate their gameplay.</p>
-    <p>Ranging from the fundamentals to higher skill concepts, LearnADC is the free platform for low-elo ADC players to finally reach their ranked goals.</p>
-
+    <p id="p1">Taught by a Master-tier ADC main who has been through the struggle, LearnADC is the <span id="free">FREE</span>, learning platform for beginner ADC enthusiasts to elevate their gameplay.</p>
+    <p id="p2"></p>
+    <p id="p3">LearnADC teaches concepts ranging from fundamentals mastery, macro, mechanics, champion guides, and even more niche things such as climbing hacks.</p>
     <ng-container *ngIf="isLoggedIn$ | async; else guest">
       <a routerLink="/courses">
         <button class="browse-btn">Browse Courses</button>
@@ -17,6 +17,7 @@
   </div>
 
   <div class="dashboard-image">
-    <img src="/kaisa_splashart.jpg" alt="Kai'Sa Splash Art" />
+    <a href="" routerLink="/"><img src="assets/learnadc-logo-transparent.png" alt="Kai'Sa Splash Art" /></a>
+    
   </div>
 </div>

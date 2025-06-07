@@ -8,11 +8,14 @@ import { CoursesComponent } from './features/courses/courses.component';
 import { LessonsComponent } from './features/lessons/lessons.component';
 import { FaqComponent } from './features/faq.component';
 import { ContactComponent } from './features/contact.component';
+import { TestcomponentComponent } from './testcomponent/testcomponent.component';
 
 export const routes: Routes = [
     { path: 'auth/login', component: LoginComponent},
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: DashboardComponent },
+    // { path: 'dashboard', component: TestcomponentComponent },
+
     { path: 'auth/register', component: RegisterComponent },
 
     // Protected Routes

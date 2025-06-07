@@ -1,59 +1,69 @@
-/* Navbar overall */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Navbar === */
 .navbar {
   background-color: #1a1a1a;
-  padding: .5rem 2rem;
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.2);
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.2);
 }
 
-/* Container inside the navbar */
+/* === Nav container === */
 .nav-container {
-  width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Logo */
-.nav-logo {
-  font-size: 1.6rem;
+/* === Left side: logo and title === */
+.nav-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-logo img.logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-logo-text {
+  color: #eee;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #D5C2FF;
   text-decoration: none;
 }
 
-/* Links */
+/* === Right side: navigation links === */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
 }
 
-/* Link styles */
 .nav-links li a {
   color: #eee;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
-/* Hover links */
-.nav-links li a:hover {
-  color: #9D4EDD;
-  cursor: pointer;
-}
-
-/* Active link */
-.active {
+.nav-links li a:hover,
+.nav-links li a.active {
   color: #9D4EDD;
 }
 
-/* Hamburger button (mobile) */
+/* === Hamburger menu (hidden by default) === */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -69,34 +79,24 @@
   border-radius: 2px;
 }
 
-/* Mobile responsiveness */
+/* === Mobile Styles === */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
-    position: absolute;
-    top: 50%;
-    right: 1.5rem;
-    transform: translateY(-50%);
   }
 
   .nav-links {
-    position: fixed;
-    top: 70px; /* height of your navbar */
+    position: absolute;
+    top: 70px;
     left: 0;
     width: 100%;
-    background-color: #1a1a1a;
     flex-direction: column;
-    align-items: center;
+    background-color: #1a1a1a;
     padding: 2rem 0;
     transform: translateY(-120%);
-    z-index: 999; /* make sure it overlays */
-    font-size: 1.3rem;
-    margin-top: 0;
-  }
-  .navbar {
-    padding: 1.5rem;
-    margin-bottom: 0;
-    z-index: 999; /* make sure it overlays */
+    transition: transform 0.3s ease;
+    text-align: center;
+    z-index: 999;
   }
 
   .nav-links.active {
@@ -105,5 +105,9 @@
 
   .nav-links li {
     margin: 1rem 0;
+  }
+
+  .nav-container {
+    justify-content: space-between;
   }
 }
