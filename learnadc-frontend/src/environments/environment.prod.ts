@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiBaseUrl: 'https://replacelater/'
+    apiBaseUrl: 'https://replacelater/api'
   };
   
