@@ -1,9 +1,11 @@
 <app-navbar></app-navbar>
 
-<div class="dashboard">
+<div class="dashboard-wrapper">
+  <div class="dashboard-text">
     <h1>Welcome to LearnADC</h1>
-    <p>The <span id="free">FREE</span>, learning platform for beginners ADC enthusiasts to elevate their gameplay.</p>
+    <p>The <span id="free">FREE</span>, learning platform for beginner ADC enthusiasts to elevate their gameplay.</p>
     <p>Ranging from the fundamentals to higher skill concepts, LearnADC is the free platform for low-elo ADC players to finally reach their ranked goals.</p>
+
     <ng-container *ngIf="isLoggedIn$ | async; else guest">
       <a routerLink="/courses">
         <button class="browse-btn">Browse Courses</button>
@@ -13,4 +15,8 @@
       <a routerLink="/auth/login" class="browse-btn-link">Login to View Courses</a>
     </ng-template>
   </div>
-  
+
+  <div class="dashboard-image">
+    <img src="/kaisa_splashart.jpg" alt="Kai'Sa Splash Art" />
+  </div>
+</div>

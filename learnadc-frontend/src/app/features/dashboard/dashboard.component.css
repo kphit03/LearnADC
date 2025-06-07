@@ -1,23 +1,56 @@
-.dashboard {
-  text-align: center;
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   padding: 4rem 2rem;
-  font-family: 'Inter', sans-serif;
   background-color: #121212;
   color: #eee;
-  
+  font-family: 'Inter', sans-serif;
+  animation: fadeInWrapper 0.6s ease-in-out;
+  height: 80vh;
 }
 
-.dashboard h1 {
+.dashboard-text {
+  flex: 1;
+  max-width: 600px;
+  padding-right: 2rem;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.dashboard-text h1 {
   font-size: 2.5rem;
-  color: #D5C2FF; /* Soft violet highlight */
+  color: #D5C2FF;
   margin-bottom: 1rem;
 }
 
-.dashboard p {
+.dashboard-text p {
   font-size: 1.2rem;
   color: #bbb;
-  max-width: 600px;
-  margin: 0 auto 2rem;
+  margin-bottom: 1.2rem;
+}
+
+#free {
+  color: rgb(0, 255, 149);
+  font-weight: bold;
+}
+
+.dashboard-image {
+  flex: 1;
+  text-align: right;
+  animation: fadeInRight 1s ease forwards;
+}
+
+.dashboard-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.dashboard-image img:hover {
+  transform: scale(1.03);
 }
 
 /* Shared button style */
@@ -43,16 +76,36 @@
   transform: translateY(-2px);
 }
 
-.dashboard h1,
-.dashboard p { /* animation when screen loads */
-  animation: fadeIn 1s ease forwards;
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dashboard-text {
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  .dashboard-image {
+    text-align: center;
+    margin-top: 2rem;
+  }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Animations */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-#free {
-  color: rgb(0, 255, 149);
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInWrapper {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
