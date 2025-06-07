@@ -6,7 +6,9 @@ import { appConfig } from './app/app.config';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { tokenInterceptor } from './app/core/token-interceptor.service';
 import { injectSpeedInsights } from '@vercel/speed-insights';
+import { inject } from '@vercel/analytics';
 
+inject();
 injectSpeedInsights();
 bootstrapApplication(AppComponent, {
   providers: [
