@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://placeholderurl.com' 
+  apiBaseUrl: 'http://13.221.93.180:8080/' 
 };
