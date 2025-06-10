@@ -15,8 +15,8 @@ public class CorsConfig {
                 System.out.println(" Global CORS config is loaded"); // Add this
                 registry.addMapping("/**")
                         .allowedOrigins("https://www.learnadc.com", "https://learnadc.com")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("Content-Type", "Authorization")
+                        .allowedMethods("*")
+                        .allowedHeaders("*")
                         .allowCredentials(true);
             }
         };
