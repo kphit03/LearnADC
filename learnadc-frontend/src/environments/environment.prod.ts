@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://api.learnadc.com' 
+  apiBaseUrl: process.env['NG_APP_API_URL'] 
 };
