@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
+    "postbuild": "find ./dist -type f -name '*.js' -exec sed -i \"s|API_URL_REPLACE_ME|$NG_APP_API_URL|g\" {} +",
     "test": "ng test"
   },
   "private": true,

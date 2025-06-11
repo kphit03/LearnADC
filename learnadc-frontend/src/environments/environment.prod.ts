@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: ['NG_APP_API_URL'] 
+  apiBaseUrl: 'API_URL_REPLACE_ME'
 };
