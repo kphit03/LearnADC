@@ -7,8 +7,9 @@ LearnADC is a free, full-stack educational platform tailored for aspiring ADC (A
 ## Try Out The Website!
 <br>
 
-- Production link at https://www.learnadc.com
+- The beta is live at https://www.learnadc.com
 - Register an account to view the courses and lessons!
+- If you do run into any issues, please contact me below or via the contact form on the page
 
 <br>
 
