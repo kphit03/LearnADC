@@ -1,0 +1,42 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full height of viewport */
+}
+
+.main-content {
+  flex: 1; /* expands to push footer down */
+}
+
+
+.footer {
+
+  background-color: #1a1a1a;
+  color: #ccc;
+  text-align: center;
+  height: 100%;
+  font-size: 0.95rem;
+  border-top: 1px solid #333;
+  margin-top: auto;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+}
+
+#easterEgg {
+    font-size: .5rem;
+    color: grey;
+}
+@media (max-width: 768px) {
+  .footer {
+    font-size: 0.85rem;
+    padding: 1.5rem 1rem;
+  }
+}
