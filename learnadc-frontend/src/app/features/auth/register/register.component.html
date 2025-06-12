@@ -2,40 +2,45 @@
 
 <div class="register-container">
     <h2>Create an Account</h2>
-  
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <h3>Please fill in ALL fields</h3>
       <!-- Username Field -->
       <div>
-        <label for="username">Username</label>
+        <label for="username">Username <span class="required-asterisk">*</span></label>
         <input
           type="text"
           id="username"
           formControlName="username"
           placeholder="Enter your username"
+          required
         />
       </div>
   
       <!-- Email Field -->
       <div>
-        <label for="email">Email</label>
+        <label for="email">Email <span class="required-asterisk">*</span></label>
         <input
           type="email"
           id="email"
           formControlName="email"
           placeholder="Enter your email"
+          required
         />
       </div>
   
       <!-- Password Field -->
       <div>
-        <label for="password">Password</label>
+        <label for="password">Password <span class="required-asterisk">*</span></label>
         <input
           type="password"
           id="password"
           formControlName="password"
           placeholder="Create a password"
+          required
         />
+        <p>Password must be at least 6 characters.</p>
       </div>
+      
   
       <button type="submit">Register</button>
     </form>

@@ -12,7 +12,9 @@
   align-items: center;
   animation: fadeInUp 0.6s ease-out;
 }
-
+.register-container p {
+  font-size: 0.8rem;
+}
 .register-container h2 {
   text-align: center;
   color: #D5C2FF;
@@ -95,3 +97,8 @@ button[type="submit"]:hover {
 .login-redirect a:hover {
   color: #D5C2FF;
 }
+
+.required-asterisk {
+  color: red;
+}
+
